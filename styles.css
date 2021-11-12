@@ -1,0 +1,122 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    font-family: Lucida Sans Unicode;
+}
+.container {
+    height: 100vh;
+    width: 33vw;
+    min-width: 480px;
+    background-color: green;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+.overview {
+    height: 70vh;
+    width: 33vw;
+    min-width: 480px;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    color: black;
+    font-weight: 100;
+    opacity: 1;
+    padding: 1vh 0vh;
+    border-bottom: 1px solid grey;
+}
+.inactive {
+    opacity: .5;
+}
+.expense-details {
+    color: black;
+    margin-top: 2vh;
+    display:flex;
+    justify-content: space-between;
+}
+.first {
+    width: 23vw;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    justify-content: space-around;
+    margin-left: 2vw;
+    
+}
+#item-amount {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.second {
+    margin: 0vw 1vw;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: .5vw;
+    max-width: 40px;
+    max-height: 40px;
+    margin-right: 2vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.items {
+    list-style-type: none;
+    display:flex;
+    font-size: 20px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.new-item {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    padding-top: 2vh;
+    bottom: 2vh;
+    width: 100%;
+    border-top: 1px solid grey;
+    font-size: 25px;
+}
+
+.new-item input {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 4vh;
+    width: 30%;
+    font-size: 25px;
+}
+.new-item button {
+    border-radius: 5px;
+    border: 1px solid grey;
+    style: none;
+    width: 2.5vw;
+    height: 4.2vh;
+    font-size: 25px;
+    background-color: green;
+    color: white;
+}
