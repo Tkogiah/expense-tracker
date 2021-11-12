@@ -82,6 +82,9 @@ body {
     margin-top: 1vh;
     margin-bottom: 1vh;
 }
+.edit img {
+    margin-left: 1vw;
+}
 .items {
     list-style-type: none;
     display:flex;
@@ -106,16 +109,16 @@ body {
     -moz-appearance: textfield;
     border-radius: 5px;
     border: 1px solid grey;
-    height: 4vh;
-    width: 30%;
+    min-height: 4vh;
+    width: 25%;
     font-size: 25px;
 }
 .new-item button {
     border-radius: 5px;
     border: 1px solid grey;
     style: none;
-    width: 2.5vw;
-    height: 4.2vh;
+    min-width: 2.5vw;
+    min-height: 4.2vh;
     font-size: 25px;
     background-color: green;
     color: white;
