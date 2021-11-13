@@ -60,7 +60,7 @@ body {
     margin-left: 2vw;
     
 }
-#item-amount {
+.item-amount {
     margin-top: 1vh;
     margin-bottom: 1vh;
 }

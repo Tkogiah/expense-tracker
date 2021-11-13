@@ -9,36 +9,36 @@
  </head>
  <body>
     <div class="container">
-        <div class="income">Income
-            <div class="total-income">$</div>
-        </div>
-        <div class="expenses">Expenses
-            <div class="total-expenses">$</div>
-        </div>
-
-
-
+        
         <div class="overview">
-            <div class="tabs">
-               <div class="tab-one">Income</div>
-               <div class="tab-two inactive">Expenses</div>
-               <div class="tab-three inactive">All</div>
-
-            </div>
-        <div class="expense-details">    
-            <div id="first" class="first">    
-                
-            </div>        
-            <div id="second" class="second">    
-                               
-            </div>
-            <div class="new-item">
-                <p>Item</p><input id="item" type="text">
-                <p>Amount</p><input id="amount" type="number">
-                <button id="button"> + </button>
-            </div>
+            <div class="overview-income"></div>
+            <div class="overview-expenses"></div>
+            <div class="overview-balance"></div>
         </div>
-    </div>
+        
+        <div class="tabs">
+            <div class="tabs-income"></div>
+            <div class="tabs-expenses"></div>
+            <div class="tabs-all"></div>
+        </div>
+    
+        <div class="dashboard">
+            <ul class="dashboard-items">
+
+            </ul>
+        </div>
+        <div class="new-items">
+            <input class="new-income-item">
+            <input class="new-income-amount">
+            <button class="new-income-button"></button>
+            <input class="new-expense-item">
+            <input class="new-expense-amount">
+            <button class="new-expense-button"></button>
+            
+        </div>
+    
+    
+    </div>   
 
     <script src="index.js" defer="defer"></script>
  </body>
