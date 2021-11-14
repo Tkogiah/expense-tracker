@@ -11,9 +11,9 @@
     <div class="container">
         
         <div class="overview">
-            <div class="overview-income"><h2>Income</h2></div>
-            <div class="overview-expenses"><h2>Expenses</h2></div>
-            <div class="overview-balance"><h2>Ending Balance</h2></div>
+            <div class="overview-income"><h2>Income</h2><h2 class='running-income'></h2></div>
+            <div class="overview-expenses"><h2>Expenses</h2><h2 class='running-expenses'></h2></div>
+            <div class="overview-balance"><h2>Balance</h2><h2 class='running-balance'></h2></div>
         </div>
         
         <div class="tabs">
@@ -21,23 +21,39 @@
             <div class="tabs-expenses inactive"><h3>Expenses</h3></div>
             <div class="tabs-all inactive"><h3>All</h3></div>
         </div>
-    
-        <div class="dashboard">
-            <ul class="dashboard-items">
-                <li>item:600<img src='https://img.icons8.com/wired/50/000000/edit.png'><img src='https://img.icons8.com/external-wanicon-lineal-wanicon/64/000000/external-delete-user-interface-wanicon-lineal-wanicon.png'></li>
-            </ul>
         
-            <div class="new-items">
-                <input class="new-income-item">
-                <input class="new-income-amount">
-                <button class="new-income-button"> + </button>
-                <input class="new-expense-item hidden">
-                <input class="new-expense-amount hidden">
-                <button class="new-expense-button hidden"> - </button>
+            <div class="dashboard">
+                <ul class="income-display">
+                    
+                </ul>
+                <ul class="expense-display hidden">
+                    
+                </ul>
+                <ul class="all-display hidden">
+                    
+                </ul>
                 
+                <div class="new-items">
+                    <div class='user-input'>
+                        <input id='description' type="text" placeholder="income">
+                    </div>
+                    <div class='user-input'>
+                        <input id='amount' type="text" placeholder="$0">
+                    </div>
+                    <div class='user-radio'>
+                        <input id='income' type="radio" name='income-or-expense' value='income'>
+                        <label for='income'>income</label>
+                        <input id='expense' type="radio" name='income-or-expense' value='expense'>
+                        <label for='expense'>expense</label>
+                    </div>
+                    <div class='trigger'>
+                        <input id='trigger' type='button' placeholder='add' value='submit'>
+                        
+                    </div>
+                    
+                </div>
             </div>
-        </div>
-    
+        
     </div>   
 
     <script src="index.js" defer="defer"></script>
