@@ -1,60 +1,49 @@
-//Section 0--Setting up a FORM for the user's 3 inputs and 1 trigger to submit onclick
-
-//Grab the user's desired description (str user <input>)
-//Grab the user's desired amount (int user <input>)
-//Grab the user's radio input (str user <input>)
-//Grab trigger to initiate the function
-/* HTML/CSS -- your radio button should give a string value***all inputs need their own div */
-/* HTML/CSS -- All inputs should be wrapped in a form with the form action pulling a function */
+// USER INPUT VALUES
 const description = document.getElementById('description');
 const amount = document.getElementById('amount');
-const incomeOrExpense = document.querySelector('input[name="income-or-expense"]:checked');
-const trigger = document.getElementById('trigger');
-const incomeRadio = document.getElementById('income')
-const expenseRadio = document.getElementById('expense')
-
-//Grab the parent node of the income display
-//Grab the parent node of the expenses display
-
+const income = document.getElementById('income')
+const expense = document.getElementById('expense')
+//TABS tabs-income tabs-expenses tabs-all
+const incomeTab = document.querySelector('.tabs-income')
+const expenseTab = document.querySelector('.tabs-expenses')
+const allTab = document.querySelector('.tabs-all')
+// DISPLAY DIVS
 const incomeDisplay = document.querySelector('.income-display')
 const expenseDisplay = document.querySelector('.expense-display')
 const allDisplay = document.querySelector('.all-display')
-
-
-//Section 1 -- Capture the user data and build the primary object
-
-//1. Initialize global scope array to store each object inside    
-//2. initialize primary function -- the event listener
-    //a. Set the input.values of all three inputs to their own variables
-    //b. Guard clause to ensure all inputs have a value
-    //c. call buildUserInputObject to take 3 data points and 1 array returns the id value of the stored object
-    //d. call displayPicker to pick which display we are going to use and return the appropriate node  
-    //e.  
-//4. take the three piceses of information as one object
-/* JS--BE SURE TO GUARD CLAUSE THESE PREVIOUS THREE NECESSARY INPUTS -- THEY ARE ALL NEEDED */  
+// BUILDER ARRAY
 const incomeAndExpenses = [];
 
-trigger.addEventListener('click', function() { 
-    let desval = description.value;   
-    let amtval = amount.value;
-    let IEval = incomeOrExpense.value;
-   
-    if(!desval || !amtval || !IEval) return;
+//TRIGGGER EVENT LISTENER FUNCTION
+function addNewIncomeOrExpense(trigger) {
+    trigger.addEventListener('click', function() { 
+        if(!description.value || !amount.value || !trigger.value) return;
+        let displayId = buildUserInputObject(description.value, amount.value, trigger.value, incomeAndExpenses); 
+        let display = displayPicker(trigger.value)
+        displayObject(trigger.value, description.value, amount.value, displayId, display);
+        //RESET VALUES
+        description.value = ''
+        amount.value = ''
+        income.value = 'income'
+        expense.value = 'expense'
+    })
+}
 
-    let displayId = buildUserInputObject(desval, amtval, IEval, incomeAndExpenses); 
-    let display = displayPicker(IEval)
+//FUNCTION TO TOGGLE TABS
+function activeInactive(active, inactive1, inactive2, display, hidden1, hidden2) {
+    active.addEventListener('click', function() {
+        active.classList.remove('inactive')
+        inactive1.classList.add('inactive')
+        inactive2.classList.add('inactive')
+        display.classList.remove('hidden')
+        hidden1.classList.add('hidden')
+        hidden2.classlist.add('hidden') 
+    })
+}
+//FUNCTION TO SHOW OR HIDE DASHBOARD ELEMENTS
 
-    displayObject(IEval, desval, amtval, displayId, display);
-    description.value = ''
-    amount.value = ''
 
-    
-})
-
-//Section 2 -- HELPER FUNCTIONS FOUND IN heroFunction()
-
-//Take 3 strings, 1 array and build an object to push into the array
-//call assignID to reassign 
+//OBJECT BUILDER AND RETURNS ID FOR <li>
 function buildUserInputObject(desc,amnt,display, masterArray) {
     let listItem = {
         'type': display,
@@ -66,14 +55,7 @@ function buildUserInputObject(desc,amnt,display, masterArray) {
     return indexId
 }
 
-//assigns an id to each object that matches the passed array's index: array[5].id == 5, array[2].id == 2, etc 
-function assignID(array) {   
-    array.forEach((item, i) => {
-        item.id = i
-    })
-}
-
-//function to choose display
+//FUNCTION TO SELECT PROPER DISPLAY
 function displayPicker(value) {
     if(value == 'income') {
         console.log('hello from the income if')
@@ -83,8 +65,9 @@ function displayPicker(value) {
         console.log('hello from the expense else if')
         return display = expenseDisplay
     }
-}   
-//function displays full object value on proper screen 
+}
+
+//FUNCTION TO DISPLAY ON SELECTED DASHBOARD 
 function displayObject(value, desc, amnt, id, display) {
     
     let dashboardItem = `<li class='${value}' id='${id}'>${desc} : $${amnt}
@@ -92,32 +75,29 @@ function displayObject(value, desc, amnt, id, display) {
                         <img id='edit' src='https://img.icons8.com/wired/50/000000/edit.png'> 
                         </li>`
 
-                        display.insertAdjacentHTML('beforeend', dashboardItem)
-                        allDisplay.insertAdjacentHTML('beforeend', dashboardItem)
+    display.insertAdjacentHTML('beforeend', dashboardItem)
+    allDisplay.insertAdjacentHTML('beforeend', dashboardItem)
     
 }
-
-
-const entryDescription = document.getElementById('entry')
-const entryAmount = document.querySelector('.new-income-amount')
-
-
-const newExpenseItem = document.querySelector('.new-expense-item')
-const newExpenseAmount = document.querySelector('.new-expense-amount')
-
-
 
 //function to edit or delete
 function modifyListItem(event) {
     const modifyButton = event.target;
     
     if(modifyButton.id == 'delete') {
-        itemList.splice(modifyButton.parentNode.id, 1)
+        incomeAndExpenses.splice(modifyButton.parentNode.id, 1)
     }
     else if(modifyButton.id == 'edit') {
-        console.log(modifyButton.parentNode.type)
+        console.log('hello from the edit node')
 
     }
 
 
 }
+
+//FUNCTION RUNS
+addNewIncomeOrExpense(income);
+addNewIncomeOrExpense(expense);
+activeInactive(incomeTab, allTab, expenseTab, incomeDisplay, allDisplay, expenseDisplay)
+activeInactive(expenseTab, incomeTab, allTab, expenseDisplay, incomeDisplay, allDisplay)
+activeInactive(allTab, expenseTab, incomeTab, allDisplay, expenseDisplay, incomeDisplay)
