@@ -11,28 +11,24 @@
     <div class="container">
         
         <div class="overview">
-            <div class="overview-income"><h2>Income</h2><h2 class='running-income'></h2></div>
-            <div class="overview-expenses"><h2>Expenses</h2><h2 class='running-expenses'></h2></div>
-            <div class="overview-balance"><h2>Balance</h2><h2 class='running-balance'></h2></div>
+            <div class="overview-balance"><h2>Balance</h2><h3 class='running-balance'>$0</h3></div>
+            <div class="overview-income"><h2>Income</h2><h3 class='running-income'>$0</h3></div>
+            <div class="overview-expenses"><h2>Expenses</h2><h3 class='running-expenses'>$0</h3></div>
         </div>
         
         <div class="tabs">
-            <div class="tabs-income"><h3>Income</h3></div>
-            <div class="tabs-expenses inactive"><h3>Expenses</h3></div>
-            <div class="tabs-all inactive"><h3>All</h3></div>
+            <div id='tabs-all' class="tabs-all"><h3>All</h3></div>
+            <div id='tabs-income' class="tabs-income inactive"><h3>Income</h3></div>
+            <div id='tabs-expenses' class="tabs-expenses inactive"><h3>Expenses</h3></div>
         </div>
         
             <div class="dashboard">
-                <ul class="income-display">
+                <ul id='income-display' class="income-display">
                     
                 </ul>
-                <ul class="expense-display hidden">
+                <ul id='expense-display' class="expense-display hidden">
                     
-                </ul>
-                <ul class="all-display hidden">
-                    
-                </ul>
-                
+                </ul>                
                 <div class="new-items">
                     <div class='user-input'>
                        <div>
