@@ -11,14 +11,14 @@ body {
 .container {
     position: absolute;
     height: 90vh;
-    width: 40vw;
+    width: 30vw;
     border: 1px solid black;
     top: 5vh;
 
 }
 .overview {
     height: 20vh;
-    width: 40vw;
+    width: 30vw;
     display: flex;
     justify-content: space-evenly;
  
@@ -29,20 +29,38 @@ body {
     display: flex;
     justify-content: space-evenly;
 }
+.inactive {
+    opacity: .5;
+}
+
 .display {
     height: 55vh;
-    width: 40vw;
+    width: 30vw;
     border-bottom: 1px solid black;
 }
 li {
     display: flex;
     justify-content: space-between;
+    height: 30px;
+    border-bottom: 1px solid grey;
+}
+.income {
+    color: green
+}
+.expense {
+    color: red;
+}
+.delete {
+    max-width: 25px;
+    max-height: 25px;
+}
+.hide {
+    display: none;
 }
 .input {
-    width: 40vw;
+    width: 30vw;
     display: flex;
     position: absolute;
     justify-content: space-evenly;
     bottom: 5vh;
-
 }
