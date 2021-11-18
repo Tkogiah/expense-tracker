@@ -4,7 +4,7 @@ function log(a) {
 } 
 
 //-------------------- DECLARE MAIN CONSTANTS ---------------------- 
-const objArray = []
+let objArray = []
 let overSum = [0]
 let overPos = [0]
 let overNeg = [0]
@@ -14,9 +14,9 @@ let negative = 0
 
 //UI NODES
 const descriptionNode = document.getElementById('description')
-const description = descriptionNode.value
+let description = descriptionNode.value
 const amountNode = document.getElementById('amount')
-const amount = amountNode.value
+let amount = amountNode.value
 const incomeNode = document.getElementById('income-btn')
 const incomeClass = incomeNode.value
 const expenseNode = document.getElementById('expense-btn')
@@ -31,8 +31,6 @@ const incomeTab = document.querySelector('.tabs-income')
 const expensesTab = document.querySelector('.tabs-expenses')
 //DISPLAY NODES
 const display = document.querySelector('.show')
-
-
 
 
 //-------------------------- BUILD FUNCTIONS -------------------------
@@ -66,6 +64,8 @@ function incomeOrExpense(node) {
         positive = overPos.reduce((a,b) => { return a + b })
         negative = overNeg.reduce((a,b) => { return a + b })  
         updateUI(objArray, total, positive, negative)
+        description = ''
+        amount = ''
     })
 }
 
@@ -73,13 +73,13 @@ function incomeOrExpense(node) {
 function overviewArray(arr, arr1, arr2, arr3) {
     arr.forEach(element => {
         if (element.class == 'income') {
-            arr1.push(Number(element.int))
-            arr2.push(Number(element.int))
+            arr1.push(Number(element.int.toFixed(2)))
+            arr2.push(Number(element.int.toFixed(2)))
 
         }
         else if (element.class == 'expense') {
-            arr1.push(-Math.abs(element.int))
-            arr3.push(-Math.abs(element.int))
+            arr1.push(-Number(element.int.toFixed(2)))
+            arr3.push(-Number(element.int.toFixed(2)))
         }
     })
         
@@ -120,8 +120,9 @@ function updateUI(array, num1, num2, num3) {
     document.querySelectorAll('.li-items').forEach((element) => element.remove());    
     //add all li to display
     arrayToLi(array)
-    description = ''
-    amount = ''
+    // description = ''
+    // amount = ''
+    //localStorage.setItem("storedObjArray", JSON.stringify(array));
 }
 
 //ASSIGN OVERVIEW NODES
@@ -191,7 +192,30 @@ function deleteItem(event){
 }
 
 
-//-------------------------- FUNCTION CALLS -------------------------
+//-------------------------- RESTORE LOCAL DATA ONLOAD -------------------------
+// function restoreData(){
+//     let storedObjArray = JSON.parse(localStorage.getItem('storedObjArray'))
+//     if(storedObjArray.length >= 1) {
+//         let objArray = storedObjArray
+//         let overSum = [0]
+//         let overPos = [0]
+//         let overNeg = [0]
+//         let total = 0
+//         let positive = 0
+//         let negative = 0
+//         overviewArray(objArray, overSum, overPos, overNeg)
+//         total = overSum.reduce((a,b) => { return a + b })  
+//         positive = overPos.reduce((a,b) => { return a + b })
+//         negative = overNeg.reduce((a,b) => { return a + b })  
+//         updateUI(objArray, total, positive, negative)
+//         return objArray
+//     }
+//     else {
+//         return objArray = []
+//     }
+// }
 
+//-------------------------- FUNCTION CALLS -------------------------
+//restoreData()
 incomeOrExpense(incomeNode)
 incomeOrExpense(expenseNode)
