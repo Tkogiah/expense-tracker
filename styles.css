@@ -7,27 +7,60 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
 }
 .container {
     position: absolute;
     height: 90vh;
-    width: 30vw;
-    border: 1px solid black;
+    width: 45vw;;
+    border: 3px solid black;
     top: 5vh;
-
+    background-color: white;
+    border-radius: 15px;
+    
+    
 }
 .overview {
     height: 20vh;
-    width: 30vw;
+    width: 45vw;
+    font-size: 2vw;
     display: flex;
     justify-content: space-evenly;
- 
+    background-color: white;
+    color: black;
+    border-top: 1px solid black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+h2 {
+    padding-top: 2vh;
+}
+
+#overview-income {
+    color: green;
+    padding-top: 1.5vh;
+}
+#overview-expenses {
+    color: red;
+    padding-top: 1.5vh;
+}
+#overview-balance {
+    color: gold;
+    padding-top: 1.5vh;
 }
 .tabs {
-    border-top: 1px solid black;
+    width: 45vw;
+    height: 7vh;
+    border-top: 3px solid black;
     border-bottom: 1px solid black;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
+    font-size: 2vw;
+    color: black;
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 .inactive {
     opacity: .5;
@@ -35,32 +68,95 @@ body {
 
 .display {
     height: 55vh;
-    width: 30vw;
+    width: 45vw;
     border-bottom: 1px solid black;
+}
+.dashboard-item {
+    font-size: 1.5vw;
 }
 li {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     height: 30px;
+    padding: 1vh 1.5vw;
     border-bottom: 1px solid grey;
 }
 .income {
-    color: green
+    color: black;
+    font-weight: bold;
+    background-color: lightgreen
 }
 .expense {
-    color: red;
+    color: black;
+    font-weight: bold;
+    background-color: pink;
 }
 .delete {
-    max-width: 25px;
-    max-height: 25px;
+    max-width: 30px;
+    max-height: 30px;
 }
 .hide {
     display: none;
 }
 .input {
-    width: 30vw;
+    width: 45vw;
+    height: 10vh;
     display: flex;
+    align-items: center;
     position: absolute;
     justify-content: space-evenly;
-    bottom: 5vh;
+    bottom: 1vh;
+    background-color: white;
+    border-top: 1px solid black;
+    
+}
+input:focus {
+    border-color: gold;
+}
+.description-field {
+    height: 5vh;
+    width: 12vw;
+    font-size: 1.5vw;
+    padding: 0px 5px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+.amount-field {
+    height: 5vh;
+    width: 12vw;
+    font-size: 1.5vw;
+    padding: 0px 5px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button, { 
+  -webkit-appearance: none;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.income-input {
+    text-align: center;
+}
+.income-btn {
+    color: white;
+    width: 7vw;
+    font-size: 1.5vw;
+    height: 5vh;
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px 1px #888888;
+}
+.expense-btn {
+    color: white;
+    width: 7vw;
+    font-size: 1.5vw;
+    height: 5vh;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 10px;
+    box-shadow: 1px 2px 4px 1px #888888;
 }
